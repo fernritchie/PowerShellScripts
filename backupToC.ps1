@@ -9,6 +9,22 @@ Script by:      Fern Ritchie
 #> 
 
 
+## How much free space, this will quit if there is less than 30 GB
+$VarSpace = $(Get-WmiObject -Class win32_logicaldisk | Where-Object -Property Name -eq C:).FreeSpace
+$inGB = $VarSpace/1gb
+
+
+if ($inGB -le 30)
+{
+
+Write-Output "HELP I NEED MORE SPACE"
+}
+
+else {
+
+Write-Output "Yay"
+
+}
 
 ## Folder Variables
 $backupFolder = "C:\Backup"
