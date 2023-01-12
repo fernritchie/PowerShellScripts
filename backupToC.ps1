@@ -9,20 +9,22 @@ Script by:      Fern Ritchie
 #> 
 
 
-## How much free space, this will quit if there is less than 30 GB
-$VarSpace = $(Get-WmiObject -Class win32_logicaldisk | Where-Object -Property Name -eq C:).FreeSpace
-$inGB = $VarSpace/1gb
+## How much free space, this will quit if the free space is less than a third of the disk space
+$VarFreeSpace = $(Get-WmiObject -Class win32_logicaldisk | Where-Object -Property Name -eq C:).FreeSpace
+$VarDiskSize = $(Get-WmiObject -Class win32_logicaldisk | Where-Object -Property Name -eq C:).Size
+$inGBFree = $VarFreeSpace / 1gb
+$inGBDisk = $VarDiskSize / 1gb
 
 
-if ($inGB -le 30)
-{
+if ($inGBFree -le $inGBDisk / 3) {
 
-Write-Output "HELP I NEED MORE SPACE"
+    Write-Output "HELP I NEED MORE SPACE"
+    exit
 }
 
 else {
 
-Write-Output "Yay"
+    Write-Output "Yay"
 
 }
 
