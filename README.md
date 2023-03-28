@@ -9,3 +9,10 @@ It will back up the data to the C drive.
 
 Best use of this script is to back up a users data before moving it to a different profile (eg. Azure profile).
 
+## Uninstall software remote
+
+Edit this script and replace the software name and switches.
+
+## Check Software GUID, prompt uninstall
+
+This can be used to check version number, GUID and uninstall software when on the machine (not remotely).
