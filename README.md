@@ -16,3 +16,7 @@ Edit this script and replace the software name and switches.
 ## Check Software GUID, prompt uninstall
 
 This can be used to check version number, GUID and uninstall software when on the machine (not remotely).
+
+## MFA Status Report
+
+For this to work you must connect to MS Graph using: Connect-Graph -Scope “UserAuthenticationMethod.Read.All”
